@@ -1,5 +1,7 @@
+*.iml
 .classpath
 .project
 .settings/
 .shell_history
 target/
+.idea/

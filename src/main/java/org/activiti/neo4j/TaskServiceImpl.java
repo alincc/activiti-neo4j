@@ -2,22 +2,27 @@ package org.activiti.neo4j;
 
 import java.util.List;
 
+import org.activiti.neo4j.*;
+import org.activiti.neo4j.Command;
+import org.activiti.neo4j.CommandContext;
+import org.activiti.neo4j.CommandExecutor;
 import org.activiti.neo4j.manager.TaskManager;
+import org.activiti.neo4j.persistance.entities.Task;
 
-public class TaskService {
+public class TaskServiceImpl implements org.activiti.neo4j.TaskService {
 
   // TODO: can be put in a command service super class
-  protected CommandExecutor commandExecutor;
+  protected org.activiti.neo4j.CommandExecutor commandExecutor;
   protected TaskManager taskManager;
 
-  public TaskService(CommandExecutor commandExecutor) {
+  public TaskServiceImpl(CommandExecutor commandExecutor) {
     this.commandExecutor = commandExecutor;
   }
 
   public List<Task> findTasksFor(final String assignee) {
-    return commandExecutor.execute(new Command<List<Task>>() {
+    return commandExecutor.execute(new org.activiti.neo4j.Command<List<Task>>() {
       
-      public void execute(CommandContext<List<Task>> commandContext) {
+      public void execute(org.activiti.neo4j.CommandContext<List<Task>> commandContext) {
         commandContext.setResult(taskManager.getTasksByAssignee(assignee));
       }
       
@@ -42,7 +47,4 @@ public class TaskService {
     this.taskManager = taskManager;
   }
 
-	public void createTaskQuery() {
-
-	}
 }

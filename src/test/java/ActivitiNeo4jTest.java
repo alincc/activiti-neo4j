@@ -7,7 +7,7 @@ import java.util.List;
 import org.activiti.neo4j.ProcessDefinition;
 import org.activiti.neo4j.ProcessEngine;
 import org.activiti.neo4j.ProcessEngineConfiguration;
-import org.activiti.neo4j.Task;
+import org.activiti.neo4j.persistance.entities.Task;
 import org.junit.Before;
 import org.junit.Test;
 import org.neo4j.graphdb.GraphDatabaseService;
